@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Assignment4
@@ -16,7 +17,7 @@ namespace Assignment4
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.CountLinesReader();
+            p.WordCounter();
             Console.ReadLine();
 
         }
@@ -67,6 +68,32 @@ namespace Assignment4
                 }
                 Console.WriteLine(lineCounter);
             }
+        }
+        public void WordCounter()
+        {
+            
+                StreamReader reader = new StreamReader("Beowulf.txt");
+                string script = reader.ReadToEnd();
+
+            var text = script.Trim();
+            int wordCount = 0, index = 0;
+
+            while (index < text.Length)
+            {
+                // check if current char is part of a word
+                while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                    index++;
+
+                wordCount++;
+
+                // skip whitespace until next word
+                while (index < text.Length && char.IsWhiteSpace(text[index]))
+                    index++;
+            }
+
+            Console.WriteLine(wordCount);
+         
+
         }
     }
 
