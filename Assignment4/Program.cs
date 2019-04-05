@@ -16,7 +16,7 @@ namespace Assignment4
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.ReadTextFiles();
+            p.CountLinesReader();
             Console.ReadLine();
 
         }
@@ -54,6 +54,18 @@ namespace Assignment4
                     if (char.IsWhiteSpace(c)) { countSpaces++; }
                 }
                 return countSpaces;
+            }
+        }
+        public void CountLinesReader()
+        {
+            long lineCounter = 0;
+            using (StreamReader fil = new StreamReader("Beowulf.txt"))
+            {
+                while (fil.ReadLine() != null)
+                {
+                    lineCounter++;
+                }
+                Console.WriteLine(lineCounter);
             }
         }
     }
