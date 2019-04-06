@@ -18,7 +18,7 @@ namespace Assignment4
 
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.Wordfinder();
+            p.Wordskipper();
             Console.ReadLine();
 
         }
@@ -112,26 +112,16 @@ namespace Assignment4
         public void Wordskipper()
         {
             int f = 0;
-            int m = 0;
-            int n = 0;
             foreach (var line in File.ReadAllLines("Beowulf.txt"))
             {
-                if (line.Contains("fare") )
+                f++;
+                if (line.Contains("fare") && (!line.Contains("war")))
                 {
-                    f++;
+                    Console.WriteLine(f);
                 }
 
             }
-            foreach (var line in File.ReadAllLines("Beowulf.txt"))
-            {
-                if (line.Contains("war") && line.Contains("fare"))
-                {
-                    m++;
-                }
-
-            }
-            n = f - m;
-            Console.WriteLine(n);
+ 
         }
         public void Letters()
         {
