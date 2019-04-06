@@ -15,9 +15,10 @@ namespace Assignment4
 
         static void Main(string[] args)
         {
+
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.Wordskipper();
+            p.Wordfinder();
             Console.ReadLine();
 
         }
@@ -100,13 +101,13 @@ namespace Assignment4
             int f = 0;
             foreach (var line in File.ReadAllLines("Beowulf.txt"))
             {
+                f++;
                 if (line.Contains("sea") && line.Contains("fare"))
                 {
-                    f++;
+                    Console.WriteLine(f);
                 }
                   
             }
-            Console.WriteLine(f);
         }
         public void Wordskipper()
         {
@@ -131,6 +132,19 @@ namespace Assignment4
             }
             n = f - m;
             Console.WriteLine(n);
+        }
+        public void Letters()
+        {
+
+            StreamReader reader = new StreamReader("Beowulf.txt");
+            string script = reader.ReadToEnd();
+            int numberOfLetters = 0;
+            foreach (char letter in script)
+            {
+                numberOfLetters++;
+            }
+            Console.WriteLine(numberOfLetters);
+
         }
 
     }
