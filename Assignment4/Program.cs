@@ -17,7 +17,7 @@ namespace Assignment4
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.WordCounter();
+            p.Wordfinder();
             Console.ReadLine();
 
         }
@@ -95,6 +95,19 @@ namespace Assignment4
          
 
         }
-    }
+        public void Wordfinder()
+        {
+            int f = 0;
+            foreach (var line in File.ReadAllLines("Beowulf.txt"))
+            {
+                if (line.Contains("sea") && line.Contains("fare"))
+                {
+                    f++;
+                }
+                  
+            }
+            Console.WriteLine(f);
+        }
+        }
 
 }
