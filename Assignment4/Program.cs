@@ -152,8 +152,11 @@ namespace Assignment4
                     index++;
             }
 
+            float val2 = (float)numberOfLetters;
+            float val1 = (float)wordCount;
+
             //find average
-            float avrg = numberOfLetters / wordCount;
+            float avrg = val2 / val1;
             Console.WriteLine(avrg);
         }
 
