@@ -18,7 +18,7 @@ namespace Assignment4
 
             Program p = new Program();
             p.Beowulf = new ArrayList();
-            p.Wordskipper();
+            p.Letters();
             Console.ReadLine();
 
         }
@@ -125,16 +125,36 @@ namespace Assignment4
         }
         public void Letters()
         {
-
+            
             StreamReader reader = new StreamReader("Beowulf.txt");
             string script = reader.ReadToEnd();
+
+            //find number of letters
             int numberOfLetters = 0;
             foreach (char letter in script)
             {
                 numberOfLetters++;
             }
-            Console.WriteLine(numberOfLetters);
+            var text = script.Trim();
+            int wordCount = 0, index = 0;
 
+            //find number of words
+            while (index < text.Length)
+            {
+                // check if current char is part of a word
+                while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                    index++;
+
+                wordCount++;
+
+                // skip whitespace until next word
+                while (index < text.Length && char.IsWhiteSpace(text[index]))
+                    index++;
+            }
+
+            //find average
+            float avrg = numberOfLetters / wordCount;
+            Console.WriteLine(avrg);
         }
 
     }
